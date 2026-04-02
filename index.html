@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spawn - The MCP Server That Builds MCP Servers</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; line-height: 1.6; }
+        .hero { text-align: center; padding: 4rem 2rem 3rem; background: linear-gradient(135deg, #2e1065 0%, #0f172a 100%); }
+        .hero h1 { font-size: 3rem; color: #a78bfa; margin-bottom: 0.5rem; }
+        .hero .version { display: inline-block; background: #7c3aed33; color: #a78bfa; padding: 0.2rem 0.8rem; border-radius: 6px; font-size: 0.9rem; margin-bottom: 1rem; }
+        .hero .tagline { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto 2rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        .section { padding: 2.5rem 0; border-bottom: 1px solid #1e293b; }
+        .section:last-child { border-bottom: none; }
+        .section h2 { font-size: 1.5rem; color: #c4b5fd; margin-bottom: 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+        .card { background: #1e293b; border-radius: 10px; padding: 1.5rem; border: 1px solid #334155; transition: border-color 0.2s; }
+        .card:hover { border-color: #a78bfa; }
+        .card h3 { color: #c4b5fd; font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .card p { color: #94a3b8; font-size: 0.95rem; }
+        pre { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 1.2rem; overflow-x: auto; font-size: 0.9rem; color: #e2e8f0; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { text-align: left; padding: 0.7rem 1rem; border-bottom: 1px solid #1e293b; }
+        th { color: #a78bfa; font-size: 0.9rem; text-transform: uppercase; }
+        td { color: #cbd5e1; }
+        code { background: #1e293b; color: #a78bfa; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9rem; }
+        .btn { display: inline-block; background: #7c3aed; color: white; padding: 0.7rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s; margin: 0.3rem; }
+        .btn:hover { background: #6d28d9; }
+        .btn-outline { background: transparent; border: 2px solid #7c3aed; color: #a78bfa; }
+        .btn-outline:hover { background: #7c3aed33; }
+        .links { text-align: center; margin: 2rem 0; }
+        footer { text-align: center; padding: 2rem; color: #475569; font-size: 0.85rem; }
+        footer a { color: #7c3aed; text-decoration: none; }
+        @media (max-width: 600px) { .hero h1 { font-size: 2rem; } .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>spawn</h1>
+        <span class="version">v0.1.0</span>
+        <p class="tagline">The MCP server that builds MCP servers. Analyze patterns, score buildability, generate implementations.</p>
+        <div class="links">
+            <a href="https://github.com/fbratten/spawn" class="btn">Source Code</a>
+            <a href="https://github.com/fbratten/spawn#quick-start" class="btn btn-outline">Quick Start</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <h2>What is spawn?</h2>
+            <p>Every AI agent session produces patterns: recurring tool sequences, multi-step workflows, domain-specific conventions. These patterns are valuable but ephemeral.</p>
+            <p style="margin-top:1rem">spawn makes them permanent. It extracts patterns from session logs, scores them for automation potential, and generates complete MCP server packages - server.py, tests, pyproject.toml, README.</p>
+            <p style="margin-top:1rem;color:#94a3b8">AI-agnostic. 17 tools. 156 tests. 3 dependencies.</p>
+        </div>
+        <div class="section">
+            <h2>How it works</h2>
+            <pre>
+Session logs
+    -> PARSE (extract tool calls, AI actions, user requests)
+    -> EXTRACT (identify recurring sequences)
+    -> SCORE (rate buildability: frequency, complexity, feasibility)
+    -> GENERATE (complete MCP server from Jinja2 templates)
+    -> VALIDATE (verify structure and imports)
+    -> LEARN (record outcomes, refine scoring)
+            </pre>
+        </div>
+        <div class="section">
+            <h2>17 MCP Tools</h2>
+            <div class="grid">
+                <div class="card"><h3>get_log_content</h3><p>Parse session logs into structured data for AI analysis</p></div>
+                <div class="card"><h3>find_recurring_themes</h3><p>Frequency analysis to surface automation candidates</p></div>
+                <div class="card"><h3>define_pattern</h3><p>AI defines patterns identified from content</p></div>
+                <div class="card"><h3>score_patterns</h3><p>5-dimension buildability scoring (0-100)</p></div>
+                <div class="card"><h3>generate_mcp</h3><p>Generate complete MCP server from pattern</p></div>
+                <div class="card"><h3>run_pipeline</h3><p>Full end-to-end: analyze -> score -> generate</p></div>
+                <div class="card"><h3>store_pattern</h3><p>Save to persistent pattern library</p></div>
+                <div class="card"><h3>learn_outcome</h3><p>Record results, refine scoring weights</p></div>
+            </div>
+            <p style="margin-top:1rem;color:#94a3b8">Plus: list_patterns, get_pattern, search_patterns, suggest_similar, generate_preview, validate_mcp, compare_existing, batch_analyze</p>
+        </div>
+        <div class="section">
+            <h2>Scoring Model</h2>
+            <table>
+                <tr><th>Dimension</th><th>Weight</th><th>Measures</th></tr>
+                <tr><td>Frequency</td><td>0.3</td><td>How often the pattern appears</td></tr>
+                <tr><td>Complexity</td><td>0.2</td><td>Complex enough to justify automation?</td></tr>
+                <tr><td>Feasibility</td><td>0.2</td><td>Implementable as an MCP server?</td></tr>
+                <tr><td>Impact</td><td>0.2</td><td>Value of automating this pattern</td></tr>
+                <tr><td>Novelty</td><td>0.1</td><td>Already served by existing tools?</td></tr>
+            </table>
+        </div>
+        <div class="section" style="text-align:center">
+            <h2>Get Involved</h2>
+            <p style="margin-bottom:1.5rem;color:#94a3b8">spawn is open source under the MIT license.</p>
+            <a href="https://github.com/fbratten/spawn" class="btn">View on GitHub</a>
+            <a href="https://github.com/fbratten/spawn/issues" class="btn btn-outline">Report Issue</a>
+        </div>
+    </div>
+    <footer>Built by <a href="https://github.com/fbratten">Fredrik Bratten</a> | <a href="https://adaptivearts.ai">AdaptiveArts.ai</a> | MIT License</footer>
+</body>
+</html>
