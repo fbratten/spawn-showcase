@@ -1,6 +1,6 @@
-# spawn - Showcase
+# spawn Showcase
 
-> The MCP server that builds MCP servers.
+> Demo and documentation site for spawn — the pattern-to-MCP server generator for AI agent workflows.
 
 [![Live Site](https://img.shields.io/badge/site-live-blue)](https://fbratten.github.io/spawn-showcase/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
